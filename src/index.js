@@ -5,12 +5,12 @@ import { showProjects } from "./ui.js";
 // createNewProject('work');
 // console.log(getAllProjects());
 
-addTodoToProject("default", "today", "jack and jill went up the hill", "Feb 18th", "Urgent");
+// addTodoToProject("default", "today", "jack and jill went up the hill", "Feb 18th", "Urgent");
 // console.log(getAllProjects());
 
 // showProjects();
 
-createNewProject('work');
-createNewProject('school');
+// createNewProject('work');
+// createNewProject('school');
 
 showProjects();

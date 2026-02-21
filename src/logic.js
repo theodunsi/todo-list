@@ -2,8 +2,15 @@ import { Project } from "./project.js"
 import { Todo } from "./todo.js"
 
 let projects = []
-const defaultProject = new Project("default");
-projects.push(defaultProject);
+const savedProjects = localStorage.getItem('projects');
+
+if (savedProjects) {
+    projects = JSON.parse(savedProjects);
+}
+else {
+    const defaultProject = new Project("default");
+    projects.push(defaultProject);
+}
 
 function getAllProjects() {
     return projects;
@@ -11,7 +18,8 @@ function getAllProjects() {
 
 function createNewProject(name) {
     const newProject = new Project(name);
-    projects.push(newProject)
+    projects.push(newProject);
+    localStorage.setItem('projects', JSON.stringify(projects));
 }
 
 function addTodoToProject(projectName, title, description, dueDate, priority) {
@@ -23,6 +31,8 @@ function addTodoToProject(projectName, title, description, dueDate, priority) {
 
     //add todo to that project
     project.addTodo(newTodo);
+
+    localStorage.setItem('projects', JSON.stringify(projects));
 }
 
 export { getAllProjects, createNewProject, addTodoToProject, }
